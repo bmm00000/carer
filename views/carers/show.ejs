@@ -25,7 +25,9 @@
 			</ul>
 			<% if(currentUser && carer.author.equals(currentUser._id)){ %>
 			<div class="card-body">
-				<a class="card-link btn btn-info" href="/carers/<%= carer._id %>/edit "
+				<a
+					class="card-link btn btn-outline-info"
+					href="/carers/<%= carer._id %>/edit "
 					>Edit profile</a
 				>
 				<form
@@ -33,7 +35,7 @@
 					action="/carers/<%= carer._id %>?_method=DELETE"
 					method="POST"
 				>
-					<button class="btn btn-danger">Delete profile</button>
+					<button class="btn btn-outline-danger">Delete profile</button>
 				</form>
 			</div>
 			<% } %>
@@ -119,7 +121,7 @@
 				></textarea>
 				<div class="valid-feedback">Looks good!</div>
 			</div>
-			<button class="btn btn-success">Submit</button>
+			<button class="btn btn-outline-success">Submit</button>
 		</form>
 		<% } %>
 	</div>
@@ -174,7 +176,9 @@
 			</ul>
 			<% if(currentUser && carer.author.equals(currentUser._id)){ %>
 			<div class="card-body">
-				<a class="card-link btn btn-info" href="/carers/<%= carer._id %>/edit "
+				<a
+					class="card-link btn btn-outline-info"
+					href="/carers/<%= carer._id %>/edit "
 					>Edit profile</a
 				>
 				<form
@@ -182,7 +186,7 @@
 					action="/carers/<%= carer._id %>?_method=DELETE"
 					method="POST"
 				>
-					<button class="btn btn-danger">Delete profile</button>
+					<button class="btn btn-outline-danger">Delete profile</button>
 				</form>
 			</div>
 			<% } %>
@@ -268,7 +272,7 @@
 				></textarea>
 				<div class="valid-feedback">Looks good!</div>
 			</div>
-			<button class="btn btn-success">Submit</button>
+			<button class="btn btn-outline-success">Submit</button>
 		</form>
 		<% } %>
 	</div>
@@ -292,7 +296,7 @@
 					action="/carers/<%= carer._id %>/reviews/<%= review._id %>?_method=DELETE"
 					method="POST"
 				>
-					<button class="btn btn-sm btn-danger">Delete</button>
+					<button class="btn btn-sm btn-outline-danger">Delete</button>
 				</form>
 				<% } %>
 			</div>

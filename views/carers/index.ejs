@@ -1,6 +1,15 @@
 <% layout('layouts/boilerplate') %>
 <div id="cluster-map"></div>
-<h1>All carers</h1>
+<figure class="text-center">
+	<blockquote class="blockquote">
+		<p>
+			Too often we underestimate the power of a touch, a smile, a kind word, a
+			listening ear, an honest compliment, or the smallest act of caring, all of
+			which have the potential to turn a life around.
+		</p>
+	</blockquote>
+	<figcaption class="blockquote-footer">Leo Buscaglia</figcaption>
+</figure>
 <div class="row">
 	<% for(let carer of carers){ %>
 	<div class="col-md-6">
@@ -28,8 +37,8 @@
 						<p class="card-text">
 							<small class="text-muted"><%= carer.location %> </small>
 						</p>
-						<a href="/carers/<%= carer._id %>" class="btn btn-primary"
-							>View <%= carer.title %>
+						<a href="/carers/<%= carer._id %>" class="btn btn-outline-primary"
+							>More info...
 						</a>
 					</div>
 				</div>
