@@ -10,7 +10,9 @@
 	</blockquote>
 	<figcaption class="blockquote-footer">Leo Buscaglia</figcaption>
 </figure>
-<div class="row row-cols-1 row-cols-md-4">
+<div
+	class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5"
+>
 	<% for(let carer of carers){ %>
 	<div class="col mb-3">
 		<div class="card h-100">
@@ -19,19 +21,19 @@
 				class="card-img-top"
 				alt="Profile image of caregiver"
 				src="<%= carer.images[0].url %> "
-				style="max-height: 22rem; min-height: 22rem"
+				style="height: 15rem"
 			/>
 			<% } else { %>
 			<img
 				class="card-img-top"
 				src="https://images.unsplash.com/photo-1588611911587-7bc55b45d588?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=774&q=80"
 				alt="Caregivers"
-				style="height: 22rem"
+				style="height: 15rem"
 			/>
 			<% } %>
 			<div class="card-body">
 				<h5 class="card-title"><%= carer.title %></h5>
-				<p class="card-text">$ <%= carer.price %>/h</p>
+				<p class="card-text">£<%= carer.price %>/h</p>
 				<p class="card-text">
 					<small class="text-muted"><%= carer.location %></small>
 				</p>
