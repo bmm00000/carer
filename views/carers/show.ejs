@@ -3,14 +3,50 @@
 <section>
 	<!-- <h1><%= carer.title %></h1> -->
 	<div class="row">
-		<% if(!carer.images.length){ %>
 		<div class="col-md-4">
+			<% if(!carer.images.length){ %>
 			<img
 				class="d-block w-100 img-fluid img-thumbnail"
 				src="https://images.unsplash.com/photo-1588611911587-7bc55b45d588?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=774&q=80"
 				alt="Caregivers"
 				style="max-height: 35rem"
 			/>
+			<% } else { %>
+			<div id="carerCarousel" class="carousel slide" data-ride="carousel">
+				<div class="carousel-inner">
+					<% carer.images.forEach((img, i)=> { %>
+					<div class="carousel-item <%= i === 0 ? 'active' : '' %>">
+						<img
+							src="<%= img.url %>"
+							class="d-block w-100 img-fluid img-thumbnail"
+							alt="User picture"
+							style="max-height: 35rem"
+						/>
+					</div>
+					<% }) %>
+				</div>
+				<% if(carer.images.length > 1) { %>
+				<a
+					class="carousel-control-prev"
+					href="#carerCarousel"
+					role="button"
+					data-slide="prev"
+				>
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Previous</span>
+				</a>
+				<a
+					class="carousel-control-next"
+					href="#carerCarousel"
+					role="button"
+					data-slide="next"
+				>
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Next</span>
+				</a>
+				<% } %>
+			</div>
+			<% } %>
 		</div>
 		<div class="col-md-8">
 			<div class="card mb-3">
@@ -40,10 +76,14 @@
 						<button class="btn btn-outline-danger">Delete profile</button>
 					</form>
 				</div>
-				<% } %>
+				<% } %> <% if(currentUser && !carer.author.equals(currentUser._id)){ %>
+				<div class="card-body">
+					<a class="card-link btn btn-outline-primary" href="#"
+						>Send a message</a
+					>
+				</div>
 				<!-- <div class="card-footer text-muted">2 days ago</div> -->
 			</div>
-			<% if(currentUser){ %>
 			<h3>Rate this carer</h3>
 			<form
 				action="/carers/<%= carer._id %>/reviews"
@@ -127,159 +167,6 @@
 			</form>
 			<% } %>
 		</div>
-		<% } else { %>
-		<div class="col-md-4">
-			<div id="carerCarousel" class="carousel slide" data-ride="carousel">
-				<div class="carousel-inner">
-					<% carer.images.forEach((img, i)=> { %>
-					<div class="carousel-item <%= i === 0 ? 'active' : '' %>">
-						<img
-							src="<%= img.url %>"
-							class="d-block w-100 img-fluid img-thumbnail"
-							alt="User picture"
-							style="max-height: 35rem"
-						/>
-					</div>
-					<% }) %>
-				</div>
-				<% if(carer.images.length > 1) { %>
-				<a
-					class="carousel-control-prev"
-					href="#carerCarousel"
-					role="button"
-					data-slide="prev"
-				>
-					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					<span class="visually-hidden">Previous</span>
-				</a>
-				<a
-					class="carousel-control-next"
-					href="#carerCarousel"
-					role="button"
-					data-slide="next"
-				>
-					<span class="carousel-control-next-icon" aria-hidden="true"></span>
-					<span class="visually-hidden">Next</span>
-				</a>
-				<% } %>
-			</div>
-		</div>
-		<div class="col-md-8">
-			<div class="card mb-3">
-				<div class="card-body">
-					<h1 class="card-title"><%= carer.title %></h1>
-					<p class="card-text"><%= carer.description %></p>
-				</div>
-				<ul class="list-group list-group-flush">
-					<li class="list-group-item text-muted"><%= carer.location %></li>
-					<li class="list-group-item">
-						Submitted by <%= carer.author.username %>
-					</li>
-					<li class="list-group-item">£<%= carer.price %> per hour</li>
-				</ul>
-				<% if(currentUser && carer.author.equals(currentUser._id)){ %>
-				<div class="card-body">
-					<a
-						class="card-link btn btn-outline-info"
-						href="/carers/<%= carer._id %>/edit "
-						>Edit profile</a
-					>
-					<form
-						class="d-inline"
-						action="/carers/<%= carer._id %>?_method=DELETE"
-						method="POST"
-					>
-						<button class="btn btn-outline-danger">Delete profile</button>
-					</form>
-				</div>
-				<% } %>
-				<!-- <div class="card-footer text-muted">2 days ago</div> -->
-			</div>
-			<% if(currentUser){ %>
-			<h3>Rate this carer</h3>
-			<form
-				action="/carers/<%= carer._id %>/reviews"
-				method="POST"
-				class="mb-3 validated-form"
-				novalidate
-			>
-				<!-- <div class="mb-3">
-						<label class="form-label" for="rating">Rating</label>
-						<input
-							class="form-range"
-							type="range"
-							min="1"
-							max="5"
-							name="review[rating]"
-							id="rating"
-						/>
-					</div> -->
-				<div class="mb-3">
-					<fieldset class="starability-checkmark">
-						<input
-							type="radio"
-							id="no-rate"
-							class="input-no-rate"
-							name="review[rating]"
-							value="1"
-							checked
-							aria-label="No rating."
-						/>
-						<input
-							type="radio"
-							id="first-rate1"
-							name="review[rating]"
-							value="1"
-						/>
-						<label for="first-rate1" title="Terrible">1 star</label>
-						<input
-							type="radio"
-							id="first-rate2"
-							name="review[rating]"
-							value="2"
-						/>
-						<label for="first-rate2" title="Not good">2 stars</label>
-						<input
-							type="radio"
-							id="first-rate3"
-							name="review[rating]"
-							value="3"
-						/>
-						<label for="first-rate3" title="Average">3 stars</label>
-						<input
-							type="radio"
-							id="first-rate4"
-							name="review[rating]"
-							value="4"
-						/>
-						<label for="first-rate4" title="Very good">4 stars</label>
-						<input
-							type="radio"
-							id="first-rate5"
-							name="review[rating]"
-							value="5"
-						/>
-						<label for="first-rate5" title="Amazing">5 stars</label>
-					</fieldset>
-				</div>
-
-				<div class="mb-3">
-					<label class="form-label" for="body">Write your review:</label>
-					<textarea
-						class="form-control"
-						name="review[body]"
-						id="body"
-						cols="30"
-						rows="1"
-						required
-					></textarea>
-					<div class="valid-feedback">Looks good!</div>
-				</div>
-				<button class="btn btn-outline-success">Submit</button>
-			</form>
-			<% } %>
-		</div>
-		<% } %>
 	</div>
 </section>
 <section>
