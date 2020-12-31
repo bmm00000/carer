@@ -28,6 +28,7 @@ Make sure you have installed Node.js in your system.
 ## Install dependencies
 
 `cd carer`
+
 `npm install`
 
 ## Run app
