@@ -2,6 +2,9 @@
 
 "Carer" is a responsive web app where freelance caregivers can advertise their services, and their clients can review them.
 
+See live:
+Watch demo:
+
 Non-authenticated users are authorised to see the whole list of caregivers, their location in a cluster map, their individual profiles, their individual location in an individual map, and the reviews submitted by their clients.
 
 Authenticated users are authorised to the same as non-authenticated ones, plus they can also message caregivers, and submit reviews of their services. Authenticated users can delete reviews only if they created them.
