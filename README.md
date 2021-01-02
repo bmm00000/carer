@@ -4,7 +4,7 @@
 
 See live:
 
-Watch demo:
+[Watch demo](https://www.loom.com/share/d2046c084c82494794814db0210cf495)
 
 Non-authenticated users are authorised to see the whole list of caregivers, their location in a cluster map, their individual profiles, their individual location in an individual map, and the reviews submitted by their clients.
 
