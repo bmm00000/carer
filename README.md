@@ -37,4 +37,4 @@ Make sure you have installed Node.js in your system.
 
 ## Run app
 
-`node index.js`
+`npm start`
