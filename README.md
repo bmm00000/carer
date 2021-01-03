@@ -2,7 +2,7 @@
 
 "Carer" is a responsive web app where freelance caregivers can advertise their services, and their clients can review them.
 
-See live:
+[See live](https://guarded-brushlands-72379.herokuapp.com/)
 
 [Watch demo](https://www.loom.com/share/d2046c084c82494794814db0210cf495)
 
