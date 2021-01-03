@@ -10,7 +10,7 @@ Non-authenticated users are authorised to see the whole list of caregivers, thei
 
 Authenticated users are authorised to the same as non-authenticated ones, plus they can also message caregivers, and submit reviews of their services. Authenticated users can delete reviews only if they created them.
 
-Authenticated users who identify as caregivers can create their profiles advertising their services, adding a description, price, location (that will appear in the maps), and add one or more pictures that will be displayed in a carousel.
+Authenticated users who identify as caregivers can create their profiles advertising their services, adding a description, price, location (that will appear in the maps), and add one or more pictures that will be displayed in a carousel. If no picture is attached, a default picture will be displayed in their profiles.
 
 Authenticated users who are profile owners (caregivers) can edit or delete only their own profile, as well as add or delete one or more of their own pictures. However, they cannot submit reviews to their own profile.
 
